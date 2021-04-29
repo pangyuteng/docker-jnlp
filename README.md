@@ -1,6 +1,6 @@
 # docker-jnlp
 
-+ install wsl2,docker-desktop,vcxsrv
++ install chocolatey,wsl2,docker-desktop,vcxsrv
 
 ```
 choco install vcxsrv
@@ -19,14 +19,21 @@ bash up.sh
 ```
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
-docker run -it --rm -e DISPLAY=$DISPLAY hello-jnlp firefox
+docker run -it --rm -e DISPLAY=$DISPLAY jnlp firefox
 ```
 
 ```
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
-docker run -it --rm -e DISPLAY=$DISPLAY hello-jnlp bash
+docker run -it --rm -e DISPLAY=$DISPLAY jnlp bash
 java Hello
+
+docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
+
+javac -d . Hello.java
+jar cvf Hello.jar Hello.class
+jar cvmf MANIFEST.MF Hello.jar Hello.class
+javaws hello.jnlp
 ```
 
 
@@ -39,5 +46,7 @@ https://blog.sebastian-daschner.com/entries/java_web_start_in_docker_sandbox
 https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/generic-linux-install.html
 https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde
 https://github.com/microsoft/WSL/issues/4793
+https://www.tecmint.com/create-and-execute-jar-file-in-linux
+
 https://github.com/Roche/IceBoar/blob/master/ice-boar-samples/ice-boar-demo/signmac.sh
 ```

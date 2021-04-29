@@ -14,13 +14,13 @@ RUN add-apt-repository ppa:maarten-fonville/ppa && \
     apt-get update && \
     apt-get install -y icedtea-8-plugin
 
+RUN apt-get install -y firefox
+
+RUN mkdir -p /opt/hello
+WORKDIR /opt/hello
 COPY Hello.java .
 RUN javac Hello.java
 CMD ["java", "Hello"] 
-
-RUN apt-get install -y firefox
-
-
 
 # # run X as non-root
 # RUN export uid=1000 gid=1000 && \
