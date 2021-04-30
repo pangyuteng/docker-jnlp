@@ -1,1 +1,1 @@
-docker build -t hello-jnlp .
+docker build -t jnlp .

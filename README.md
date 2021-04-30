@@ -28,12 +28,14 @@ export LIBGL_ALWAYS_INDIRECT=1
 docker run -it --rm -e DISPLAY=$DISPLAY jnlp bash
 java Hello
 
-docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
 
+docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
 javac -d . Hello.java
 jar cvf Hello.jar Hello.class
 jar cvmf MANIFEST.MF Hello.jar Hello.class
+java -jar Hello.jar
 javaws hello.jnlp
+
 ```
 
 
