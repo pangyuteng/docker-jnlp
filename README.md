@@ -1,6 +1,6 @@
 # docker-jnlp
 
-+ install chocolatey,wsl2,docker-desktop,vcxsrv
++ [for windows] install chocolatey,wsl2,docker-desktop,vcxsrv
 
 ```
 choco install vcxsrv
@@ -13,32 +13,34 @@ refreshenv
 bash up.sh
 ```
 
-+ check that vcxsrv is running in windows task bar.
++ [for windows] check that vcxsrv is running in windows task bar.
 
-+ run in WSL2 or git bash:
++ [for windows] run in WSL2 or git bash:
 ```
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 docker run -it --rm -e DISPLAY=$DISPLAY jnlp firefox
-```
 
-```
 # windows
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
-docker run -it --rm -e DISPLAY=$DISPLAY jnlp bash
+docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
 javac -d . Hello.java
 java Hello
+```
 
-# [WIP] ubuntu - x11 not visible within docker
++ [WIP] for ubuntu
+```
+# ubuntu - x11 not visible within docker
 export DISPLAY=:1
 export DISPLAY=192.168.68.117:0.0
 docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir -v /tmp/.X11-unix:/tmp/.X11-unix jnlp bash
 javac -d . Hello.java
 java Hello
+```
 
-
-docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
++ within docker (win & ubuntu)
+```
 javac -d . Hello.java
 jar cvf Hello.jar Hello.class
 jar cvmf MANIFEST.MF Hello.jar Hello.class
