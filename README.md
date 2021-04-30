@@ -15,13 +15,14 @@ bash up.sh
 
 + [for windows] check that vcxsrv is running in windows task bar.
 
-+ [for windows] run in WSL2 or git bash:
++ [for windows] use WSL2 or git bash as terminal:
 ```
+# run firefox
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 docker run -it --rm -e DISPLAY=$DISPLAY jnlp firefox
 
-# windows
+# run hello-world app
 export DISPLAY=10.9.86.54:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 docker run -it --rm -e DISPLAY=$DISPLAY -w /workdir -v $PWD:/workdir jnlp bash
@@ -29,7 +30,7 @@ javac -d . Hello.java
 java Hello
 ```
 
-+ [WIP] for ubuntu
++ [WIP] [for ubuntu]:
 ```
 # ubuntu - x11 not visible within docker
 export DISPLAY=:1
