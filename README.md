@@ -3,9 +3,15 @@
 + [for windows] install chocolatey,wsl2,docker-desktop,vcxsrv
 
 ```
-choco install vcxsrv
+choco install openssh -params '"/SSHServerFeature /KeyBasedAuthenticationFeature"' –y
+choco install vcxsrv -y
 refreshenv
 ```
+follow below 2 links to ensure you can launch gui via docker
+https://4sysops.com/archives/install-openssh-on-windows-for-powershell-core-remoting-via-ssh/
+https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde
+
+
 
 + build container
 
