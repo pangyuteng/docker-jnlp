@@ -15,9 +15,15 @@ public class MyTest {
         URL url = null;
         url = MyTest.class.getClassLoader().getResource("xyz.properties");
         System.out.println("url = " + url); // `url = null`
+        url = MyTest.class.getClassLoader().getResource("/xyz.properties");
+        System.out.println("url = " + url); // `url = null`
+        url = MyTest.class.getClassLoader().getResource("./xyz.properties");
+        System.out.println("url = " + url); // `url = null`
         url = MyTest.class.getClassLoader().getResource("com/xyz.properties");
         System.out.println("url = " + url); // `url = null`
         url = MyTest.class.getClassLoader().getResource("/com/xyz.properties");
+        System.out.println("url = " + url); // `url = null`
+        url = MyTest.class.getClassLoader().getResource("./com/xyz.properties");
         System.out.println("url = " + url); // `url = null`
         url = MyTest.class.getClassLoader().getResource("resources/com/xyz.properties");
         System.out.println("url = " + url); // url = jar:file:/workdir/mytest/foo.jar!/resources/com/xyz.properties
@@ -43,7 +49,9 @@ public class MyTest {
         System.out.println("url = " + url); // url = jar:file:/workdir/mytest/foo.jar!/resources
         url = MyTest.class.getClassLoader().getResource("resources/config");
         System.out.println("url = " + url); // url = jar:file:/workdir/mytest/foo.jar!/resources/config
-        url = MyTest.class.getClassLoader().getResource("resources/config/abc.properties");
+        url = MyTest.class.getClassLoader().getResource("resources/config/");
+        System.out.println("url = " + url); // url = jar:file:/workdir/mytest/foo.jar!/resources/config/
+        url = MyTest.class.getClassLoader().getResource("resources/config/*.properties");
         System.out.println("url = " + url);
         
         try {
