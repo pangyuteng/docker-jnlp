@@ -1,6 +1,6 @@
-everything.sh
 
-javac com/MyTest.java
-jar cvf foo.jar com resources
-jar tf foo.jar
-java -cp foo.jar com.MyTest
+cd $projectRoot
+docker build -t jnlp .
+docker run -it -v $PWD:/workdir -w /workdir jnlp bash
+cd mytest
+bash everything.sh
