@@ -53,9 +53,12 @@ public class MyTest {
         System.out.println("url = " + url); // url = jar:file:/workdir/mytest/foo.jar!/resources/config/
         url = MyTest.class.getClassLoader().getResource("resources/config/*.properties");
         System.out.println("url = " + url);
-        
+
+        url = MyTest.class.getClassLoader().getResource("resources/def.properties");
+        System.out.println("url = " + url);
+
         try {
-            InputStream in = MyTest.class.getClassLoader().getResourceAsStream("resources/config/abc.properties");
+            InputStream in = MyTest.class.getClassLoader().getResourceAsStream("resources/def.properties");
             System.out.println("in = " + in);
 
             prop.load(in);
