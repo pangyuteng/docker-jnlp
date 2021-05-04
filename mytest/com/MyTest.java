@@ -54,11 +54,8 @@ public class MyTest {
         url = MyTest.class.getClassLoader().getResource("resources/config/abc.properties");
         System.out.println("url = " + url);
 
-        url = MyTest.class.getClassLoader().getResource("resources/def.properties");
-        System.out.println("url = " + url);
-
         try {
-            InputStream in = MyTest.class.getClassLoader().getResourceAsStream("resources/def.properties");
+            InputStream in = MyTest.class.getClassLoader().getResourceAsStream("resources/config/abc.properties");
             System.out.println("in = " + in);
 
             prop.load(in);
